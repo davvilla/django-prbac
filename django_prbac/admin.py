@@ -1,7 +1,7 @@
+import json
+
 from django import forms
 from django.contrib import admin
-
-import simplejson
 
 import django_prbac.csv
 from django_prbac.models import *
@@ -53,7 +53,7 @@ class GrantAdmin(admin.ModelAdmin):
     model = Grant
 
     def assignment__dumps(self, instance):
-        return simplejson.dumps(instance.assignment)
+        return json.dumps(instance.assignment)
     assignment__dumps.short_description = 'Assignment'
 
     list_display = [
